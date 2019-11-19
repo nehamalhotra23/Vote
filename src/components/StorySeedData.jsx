@@ -10,8 +10,8 @@ let seedData = [
     id: 1
   },
   {
-    title: "Title",
-    content: "Content",
+    title: "Header",
+    content: "Words",
     votes: 0,
     id: 2
   }

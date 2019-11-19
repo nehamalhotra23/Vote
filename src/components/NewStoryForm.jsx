@@ -13,7 +13,7 @@ function NewStoryForm(props) {
     _content.value = "";
   }
   return (
-    <div>
+    <div className="container">
       <form onSubmit={handleSubmission}>
         <input
           type='text'

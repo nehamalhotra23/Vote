@@ -15,6 +15,8 @@ class App extends React.Component {
       storyFeed: StorySeedData
     };
     this.handleNewStory = this.handleNewStory.bind(this);
+    this.handleUpVoteClick = this.handleUpVoteClick.bind(this);
+    this.handleDownVoteClick = this.handleDownVoteClick.bind(this);
   }
 
   handleNewStory(newStory){
@@ -22,13 +24,24 @@ class App extends React.Component {
     temp.push(newStory);
     this.setState({storyFeed: temp});
   }
-  
+
+  handleUpVoteClick(id){
+    var copy = this.state.storyFeed;
+    copy[id].votes = copy[id].votes + 1;
+    this.setState({storyFeed: copy})
+  }  
+  handleDownVoteClick(id){
+    var copy = this.state.storyFeed;
+    copy[id].votes = copy[id].votes - 1;
+    this.setState({storyFeed: copy})
+  }  
   render() {
+    console.log(this.state.storyFeed)
     return(
       <div>
         <NavBar/>
         <Switch>
-          <Route exact path="/" render={()=><Feed storyFeed={this.state.storyFeed} />}/>
+          <Route exact path="/" render={()=><Feed storyFeed={this.state.storyFeed}  onLike={this.handleUpVoteClick} onDisLike={this.handleDownVoteClick}/>}/>
           <Route path="/newstory" render={()=><NewStoryForm onStoryCreation={this.handleNewStory} />} />
           <Route component={Error404} />
         </Switch>

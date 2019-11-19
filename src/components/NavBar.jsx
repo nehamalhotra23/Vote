@@ -24,7 +24,7 @@ function NavBar(){
   };
   return (
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom box-shadow mb-3">
+    <nav >
       
       <div className = "container" style={navBar}>
         <button className="btn" style={navBarButton}><Link style={navLink} to = "/">Home</Link></button>
