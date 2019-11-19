@@ -4,8 +4,10 @@ import PropTypes from "prop-types";
 
 function Feed(props) {
 
+  props.storyFeed.sort((a,b)=> b.votes - a.votes);
   return (
     <div className="container">
+
       {props.storyFeed.map((story, index) =>
 
         <Story title={story.title}

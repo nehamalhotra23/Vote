@@ -36,7 +36,6 @@ class App extends React.Component {
     this.setState({storyFeed: copy})
   }  
   render() {
-    console.log(this.state.storyFeed)
     return(
       <div>
         <NavBar/>
